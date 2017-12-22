@@ -11,11 +11,53 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+Route::get('/', function(){
+	return 'Home';
 });
-Route::get('norah', function(){
-	
-	$nombre=array('nombre'=>'david');
-	return $nombre;
+
+/*Route::get('/usuarios', function(){	
+	return 'usuarios';
 });
+
+
+Route::get('/usuarios/{id}', function($id){
+	return "mostrando detalle del usuario: $id";
+})->where('id', '[0-9]+');
+
+
+//crear nuevo usuario genera conficto arregla con where en {id}
+Route::get('/usuarios/nuevo', function(){
+	return 'Crear nuevo usuario';
+});
+
+/*Route::get('/usuarios/{id}', function($id){
+	return "mostrando detalle del usuario: {$id}";
+}); para manera automatica
+
+Route::get('/saludo/{name}/{nickname?}', function($name, $nickname=null){
+	$name=ucfirst($name);
+	if($nickname){
+		return "bienvenido {$name}, tu apodo es {$nickname}";
+	}else{
+		return "bienvenido {$name}";
+	}	
+});**/
+
+//Route::get('norah', function(){	
+	//$nombre=array('nombre'=>'david');
+	//return $nombre;
+//});
+
+Route::get('/usuarios', 'UserController@index');
+
+Route::get('/usuarios/{id}', 'UserController@show')
+->where('id', '[0-9]+');
+
+Route::get('/usuarios/nuevo', 'UserController@create');
+
+/*Route::get('/saludo/{name}/{nickname?}', 'WelcomerUserController@index'); o tambien*/
+Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController');
