@@ -22,9 +22,9 @@ class ProfessionSeeder extends Seeder
 //ALTER TABLE 'professions' ENABLE TRIGGER ALL
     	
 // ---- esto es SQL
-    	//DB::insert('INSERT INTO professions (title) VALUES (:title)', ['Desarrollador back-end']);
+    	//DB::insert('INSERT INTO professions (title) VALUES (:title)', ['title' => 'Desarrollador back-end']);
 
-// --- constructor de consultas 1
+// --- constructor de consultas de laravel
  //DB::table('professions')->insert(['title' => 'Desarrollador back-end',]); 
 
 //--------------- con model nivel mas alto

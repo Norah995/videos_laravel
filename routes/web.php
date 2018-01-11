@@ -15,10 +15,17 @@
     return view('welcome');
 });*/
 
+
 Route::get('/', function(){
-	return 'Home';
+	$tasks = App\Task::latest()->get();
+	return view('welcome', compact('tasks'));
 });
 
+Route::get('/pruu', function(){
+	return view('Tags');
+});
+
+Route::get('/listaro', 'RoleController@lista');
 /*Route::get('/usuarios', function(){	
 	return 'usuarios';
 });

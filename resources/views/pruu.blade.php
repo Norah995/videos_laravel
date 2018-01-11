@@ -1,24 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prueba 2</title>
+  <link href="{{ asset('css/stylee.css')}}" rel="stylesheet">
+</head>
+<body>
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+  <div class="tagsin">
+    <div class="vuetagger-list">
+          <span v-for="tag in tags" class="vuetagger-tag">
+            @{{ tag }} <span class="vuetagger-tag-remover" @click="remove(tag)">&times;</span>
+          </span>
+        </div>
 
-require('./bootstrap');
-
-window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-//Vue.component('example-component', require('./components/ExampleComponent.vue'));
+        <input type="email"
+          class="vuetagger-input"
+          v-model="newTag"
+          @keydown.enter="append"
+          @keydown.delete="removeLastTag"
+        />
+  </div>
 
 
- new Vue({
+</body>
+<script type="text/javascript" src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+<script>
+  new Vue({
     el: ".tagsin",
     data: {
       props: {
@@ -103,3 +110,7 @@ window.Vue = require('vue');
   
     
   })
+
+</script>
+
+</html>

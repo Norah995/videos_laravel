@@ -1,0 +1,35 @@
+<style scoped>
+  .vuetagger {
+    display: table;
+    border: 1px solid #cecece;
+    padding: 4px 8px;
+    width: 100%;
+  }
+  .vuetagger-list {
+  }
+  .vuetagger-tag {
+    background: #f0f0f0;
+    padding: 0 0 0 8px;
+    display: inline-block;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    cursor: default;
+  }
+  .vuetagger-input {
+    padding: 4px;
+    display: table-cell;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .vuetagger-tag:hover .vuetagger-tag-remover{
+    background: #cecece;
+    color: white;
+  }
+  .vuetagger-tag-remover {
+    padding: 4px 8px;
+    display: inline-block;
+    cursor: default;
+    margin-left: 4px;
+  }
+</style>

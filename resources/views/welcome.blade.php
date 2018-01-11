@@ -10,7 +10,50 @@
         
     </head>
     <body>
-        <h1>Curso de Styde</h1>
+
+    <div class="container">
+        <h1>mi taks</h1>
+        <tasks list="{{ $tasks }}"></tasks>
+        
+    </div>
+    <template id="tasks-template">
+        <ul class="list-group">
+            <li class="list-group-item" v-for="task in list">
+                @{{ task.body }}       
+            </li>          
+        </ul>
+    </template>
+
+    
+    
+
+        
+   
+ <script type="text/javascript" src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+    <script src="/js/main.js">
+        /*
+
+<div class="container">
+        <h1>mi taks</h1>
+        <tasks list="{{ $tasks }}"></tasks>
+    </div>
+
+    <template id="tasks-template">
+        
+        <ul class="list-group">
+          
+            <li class="list-group-item" v-for="task in list">
+                @{{ task.body }}
+                    
+            </li> 
+           
+        </ul>
+    </template>
+        */
+
+
+    </script>
         
     </body>
+
 </html>

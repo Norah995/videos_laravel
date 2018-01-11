@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <title>holavue</title>
+  </head>
+  <body>
+<div class="my-component">
+    <vue-tagger :tags="tags" @change="logTags" :placeholder="'Enter a tag...'" :delimiter="','"></vue-tagger>
+  </div>
+  </body>
+<script type="text/javascript" src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+  <script type="text/javascript">
+import VueTagger from 'vue-tagger'
+export default {
+  components: {
+    VueTagger
+  },
+  data() {
+    return {
+      tags: [
+        { name: 'JavaScript', selected: true },
+        { name: 'Ruby', selected: false },
+        { name: 'PHP', selected: true },
+        { name: 'Crystal', selected: true },
+        { name: 'Python', selected: false }
+      ]
+    }
+  },
+  methods: {
+    logTags (tags) {
+      console.log(tags)
+    }
+  }
+}
+</script>
+  	</script>
+</html>
