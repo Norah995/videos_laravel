@@ -26,6 +26,8 @@ Route::get('/pruu', function(){
 });
 
 Route::get('/listaro', 'RoleController@lista');
+
+Route::get('/todo', 'RoleController@listatodo');
 /*Route::get('/usuarios', function(){	
 	return 'usuarios';
 });

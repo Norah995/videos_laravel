@@ -16,7 +16,7 @@
 			<select v-model="newTag">
 				<!-- en este punto se lo puede cambiar por v-bind:value="rol.value" -->
 			  <option v-for="rol in rols" v-bind:text="rol.text">
-			    @{{ rol.text }}
+			    @{{ rol.name }}
 			  </option>
 			</select>
 			<span>Modulos: @{{ newTag }}</span>
@@ -31,14 +31,28 @@
 		<pre>
 			@{{ $data }}
 		</pre>
+		<p>{{ $role->id }} {{ $role->name }}</p>
+		<ul>
+			@foreach($todo as $item) 
+			<li>{{ $item->id.' '.$item->name }}</li>
+			@endforeach
+		</ul>
+
+		<p>{{ 'primer registro: '.$pri->id.' '.$pri->name }}</p>
+		<p>{{ 'ultimo registro: '.$ult->id.' '.$ult->name }}</p>
 	</div>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
 
-<script type="text/javascript" src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
 <script>
-	new Vue({
+	var vm = new Vue({
 		el: ".tagsin",
+		created: function() {
+			this.getrols();
+		},
+
 		data: {
 			props: {
 		      value: {
@@ -56,8 +70,8 @@
 	      return {
 	      	rols: 
 	      	[
-	        	/*{ "value": '1' , "text": "Administrador"},
-				{ "value": '2' , "text": "Area de Recepcion"},
+	        	{ "value": '1' , "nae": "Administrador"},
+				/*{ "value": '2' , "text": "Area de Recepcion"},
 				{ "value": '3' , "text": "Revision y Validacion"},
 				{ "value": '4' , "text": "Area Tecnica"},
 				{ "value": '5' , "text": "Jefatura"},
@@ -84,11 +98,13 @@
 				{ "value": '26', "text": "Regional Sucre"},
 				{ "value": '27', "text": "Regional Tarija"},*/
 	        ],
+	        
 	        newTag: '',
 	        tags: 
 	        [
 
 	        ],
+	        
 	        
 	      }
 	    },
@@ -101,6 +117,12 @@
 	    },
 
 		methods: {
+			getrols: function(){
+	        	this.get.('/listaro').then( response => {
+	        		this.rols = response.data
+	        	});
+				
+			},
 	      /**
 	       * Initialize the tags
 	       */
